@@ -1,0 +1,2 @@
+myserver:
+  base_url: http://localhost:${wiremock.server.port}/
