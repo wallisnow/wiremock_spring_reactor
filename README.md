@@ -17,7 +17,7 @@
                         .withStatus(200)));
 ```
 # 4.代码解析
-https://www.jianshu.com/writer#/notebooks/45010924/notes/66803936
+https://www.jianshu.com/p/71e4c0bf0129
 
 # 5.Refs
 - wiremock 官方文档: http://wiremock.org/docs/
