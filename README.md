@@ -16,7 +16,9 @@
                         .withBody(requestBody)
                         .withStatus(200)));
 ```
+# 4.代码解析
+https://www.jianshu.com/writer#/notebooks/45010924/notes/66803936
 
-# 4.Refs
+# 5.Refs
 - wiremock 官方文档: http://wiremock.org/docs/
 - spring cloud: [https://cloud.spring.io/spring-cloud-contract/reference/html/project-features.html#features-wiremock](https://cloud.spring.io/spring-cloud-contract/reference/html/project-features.html#features-wiremock)
