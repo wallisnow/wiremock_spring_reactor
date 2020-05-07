@@ -16,6 +16,8 @@ public class DummyService {
     private static final String REMOTE_GET_PATH = "/remote/get/{id}";
     private static final String REMOTE_POST_PATH = "/remote/post";
 
+    private static final String TRANSFORM_PATH = "/change/id";
+
     public Mono<String> pingById(String id) {
         log.info("processing id, {}", id);
         return webClient.get()
@@ -28,6 +30,15 @@ public class DummyService {
         log.info("processing bodyValue, {}", bodyValue);
         return webClient.post()
                 .uri(REMOTE_POST_PATH)
+                .bodyValue(bodyValue)
+                .retrieve()
+                .bodyToMono(String.class);
+    }
+
+    public Mono<String> transform(String bodyValue) {
+        log.info("processing bodyValue, {}", bodyValue);
+        return webClient.post()
+                .uri(TRANSFORM_PATH)
                 .bodyValue(bodyValue)
                 .retrieve()
                 .bodyToMono(String.class);

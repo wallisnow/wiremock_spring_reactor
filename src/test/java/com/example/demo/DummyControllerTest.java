@@ -74,4 +74,26 @@ class DummyControllerTest {
                 });
 
     }
+
+    @Test
+    void testTransformer() {
+
+        stubFor(post(urlEqualTo("/change/id")).willReturn(aResponse()
+                .withTransformers(DummyResponseTransformer.DUMMY_TRANSFORMER)
+                .withTransformerParameter("prefix", "Hello_")));
+
+        webTestClient
+                .post()
+                .uri("/test/transform")
+                .bodyValue("666")
+                .exchange()
+                .expectStatus().isEqualTo(HttpStatus.OK)
+                .expectBody(String.class)
+                .consumeWith(stringEntityExchangeResult -> {
+                    String responseBody = stringEntityExchangeResult.getResponseBody();
+                    log.info(responseBody);
+                    Assertions.assertEquals(responseBody, "{\"id\":\"Hello_666\"}");
+                });
+
+    }
 }

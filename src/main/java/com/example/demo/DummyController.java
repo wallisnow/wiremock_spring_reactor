@@ -31,4 +31,13 @@ public class DummyController {
                     return ResponseEntity.ok(res);
                 });
     }
+
+    @PostMapping(path = "/transform")
+    public Mono<ResponseEntity<String>> transform(@RequestBody final String requestBody) {
+        return dummyService.transform(requestBody)
+                .map(res -> {
+                    log.info("response from remote server: {}", res);
+                    return ResponseEntity.ok(res);
+                });
+    }
 }
