@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class DummyWireMockConfigurationCustomizer implements WireMockConfigurationCustomizer {
     @Override
     public void customize(WireMockConfiguration config) {
-        config.extensions(DummyResponseTransformer.class);
+        config.extensions(DummyResponseTransformer.class, MyDummyResponseTransformer.class);
     }
 }
